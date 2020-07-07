@@ -1,8 +1,15 @@
 var USE_DB = true;
-var mongojs = USE_DB ? require("mongojs").connect("mongodb://heroku_1j9wmpk7:u61qs10ulsq7ef8skrp3ulia22@ds041357.mlab.com:41357/heroku_1j9wmpk7") : null;
-var db = USE_DB
-  ? mongojs("mongodb://heroku_1j9wmpk7:u61qs10ulsq7ef8skrp3ulia22@ds041357.mlab.com:41357/heroku_1j9wmpk7", ["account", "progress"])
-  : null;
+var mongoose = USE_DB ? require("mongoose") : null;
+var db = USE_DB ? mongoose.connection : null;
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/myGame";
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useFindAndModify: true,
+  useUnifiedTopology: true,
+});
+
+db.on("open", () => {});
 
 Database = {};
 Database.isValidPassword = function (data, cb) {
