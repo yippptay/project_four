@@ -1,7 +1,8 @@
 var USE_DB = true;
+var mongojs = USE_DB ? require("mongojs").connect("mongodb://heroku_1j9wmpk7:u61qs10ulsq7ef8skrp3ulia22@ds041357.mlab.com:41357/heroku_1j9wmpk7") : null;
 var db = USE_DB
-  ? process.env.MONGODB_URI
-  : mongojs("localhost:27017/myGame", ["account", "progress"]);
+  ? mongojs("mongodb://heroku_1j9wmpk7:u61qs10ulsq7ef8skrp3ulia22@ds041357.mlab.com:41357/heroku_1j9wmpk7", ["account", "progress"])
+  : null;
 
 Database = {};
 Database.isValidPassword = function (data, cb) {

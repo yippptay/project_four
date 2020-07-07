@@ -1,7 +1,6 @@
 {
   "name": "project_four",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -19,5 +18,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }
