@@ -1,6 +1,6 @@
 
 # Bulbasaur Arena
-> Short blurb about what your product does.
+> "Who wouldn't want this?"
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
