@@ -13,6 +13,7 @@ No need! [CLICK HERE TO PLAY ME!](https://arcane-sea-60625.herokuapp.com/)
 ## Meta
 
 Taylor Yip – [GitHub](https://github.com/yippptay)
+ScriptersWar - [YouTube](https://www.youtube.com/c/ScriptersWar/)
 
 ## Task-list
 - [x] First commit
