@@ -139,6 +139,10 @@ Player.onConnect = function (socket, username, progress) {
   });
   player.inventory.refreshRender();
 
+  for (var i in SOCKET_LIST) {
+    SOCKET_LIST[i].emit("addToPlayerList", player.username);
+  }
+
   socket.on("keyPress", function (data) {
     if (data.inputId === "left") player.pressingLeft = data.state;
     else if (data.inputId === "right") player.pressingRight = data.state;
@@ -154,8 +158,10 @@ Player.onConnect = function (socket, username, progress) {
   });
 
   socket.on("sendMsgToServer", function (data) {
+    var myJSON = JSON.stringify(data);
+    var result = data.fontcolor("#0000ff"); // the iconic OSRS blue
     for (var i in SOCKET_LIST) {
-      SOCKET_LIST[i].emit("addToChat", player.username + ": " + data);
+      SOCKET_LIST[i].emit("addToChat", player.username + ": " + result);
     }
   });
   socket.on("sendPmToServer", function (data) {
@@ -199,7 +205,11 @@ Player.onDisconnect = function (socket) {
   });
   delete Player.list[socket.id];
   removePack.player.push(socket.id);
+  for (var i in SOCKET_LIST) {
+    SOCKET_LIST[i].emit("addToPlayerLeaving", player.username);
+  }
 };
+
 Player.update = function () {
   var pack = [];
   for (var i in Player.list) {

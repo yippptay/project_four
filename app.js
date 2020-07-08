@@ -1,7 +1,9 @@
+/******
+ * Dependencies
+ **/
 require("./Database.js");
 require("./Entity.js");
 require("./client/Inventory.js");
-
 var express = require("express");
 var app = express();
 var serv = require("http").Server(app);
@@ -12,7 +14,6 @@ app.get("/", function (req, res) {
 app.use("/client", express.static(__dirname + "/client"));
 
 serv.listen(process.env.PORT || 3000);
-console.log("Server started.");
 
 SOCKET_LIST = {};
 
