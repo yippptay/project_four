@@ -21,8 +21,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
     <body>
-        <!-- LOGIN DIV -->
-        <div id="signDiv" style="width: 340px; margin: 60px auto 30px; padding: 15px; position: relative; background: #fffaf6;border-radius: 4px;color: #7e7975; box-shadow: 0 2px 2px rgba(0,0,0,0,2),0 1px 5px rgba(0,0,0,0.2),0 0 0 12px rgba(255,255,255,0.4);">
+		<!-- LOGIN DIV -->
+		<img src="./client/img/pkmn-title.png" style="display: block; margin: auto; width: 75%;">
+		<div id="signDiv" style="width: 340px; margin: 60px auto 30px; padding: 15px; position: relative; background: #fffaf6;border-radius: 4px;color: #7e7975; box-shadow: 0 2px 2px rgba(0,0,0,0,2),0 1px 5px rgba(0,0,0,0.2),0 0 0 12px rgba(255,255,255,0.4);">
             Username: <input id="signDiv-username" type="text"></input><br><br>
 			Password: <input id="signDiv-password" type="password"></input>
 			<br><br><br><br><br><br><br><br><br><br>
@@ -69,12 +70,23 @@
 					<img src="./client/img/controls.png">
 				</div>
 			</h3>
+			<audio autoplay controls id="myaudio">
+				<source src="./client/public/music/life.mp3" type="audio/mpeg">
+			  Your browser does not support the audio element.
+			</audio>
 		</div>
 
         <!--<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>-->
         <script src="./client/socket.js"></script>
 		<script src="./client/Inventory.js"></script>
         <script>
+			// Audio
+			var audio = document.getElementById("myaudio");
+			audio.volume = 0.1;
+			
+			function playAudio() {
+				audio.play();
+			}
             // 
             var WIDTH = 500;
             var HEIGHT = 500;
@@ -96,7 +108,8 @@
             socket.on('signInResponse',function(data){
             	if(data.success){
             		signDiv.style.display = 'none';
-            		gameDiv.style.display = 'inline-block';
+					gameDiv.style.display = 'inline-block';
+					playAudio();
             	} else
             		alert("Sign in unsuccessul.");
             });
