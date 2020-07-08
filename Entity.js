@@ -66,7 +66,6 @@ Player = function (param) {
   self.hpMax = 10;
   self.score = 0;
   self.inventory = new Inventory(param.progress.items, param.socket, true);
-  self.socket = param.socket;
 
   var super_update = self.update;
   self.update = function () {
@@ -155,8 +154,8 @@ Player.onConnect = function (socket, username, progress) {
   });
 
   socket.on("sendMsgToServer", function (data) {
-    for (var i in Player.list) {
-      Player.list[i].socket.emit("addToChat", player.username + ": " + data);
+    for (var i in SOCKET_LIST) {
+      SOCKET_LIST[i].emit("addToChat", player.username + ": " + data);
     }
   });
   socket.on("sendPmToServer", function (data) {
@@ -164,7 +163,7 @@ Player.onConnect = function (socket, username, progress) {
     var recipientSocket = null;
     for (var i in Player.list)
       if (Player.list[i].username === data.username)
-        recipientSocket = Player.list[i].socket;
+        recipientSocket = SOCKET_LIST[i];
     if (recipientSocket === null) {
       socket.emit(
         "addToChat",
