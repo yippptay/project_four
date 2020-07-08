@@ -2,10 +2,6 @@
 # POKEMON BATTLE ARENA
 > "Who wouldn't want this?"
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
 A pokemon based multilayer shoot-em-up hosted on heroku.
 
 ![](/client/img/pkmn-title.png)
@@ -18,6 +14,20 @@ No need! [CLICK HERE TO PLAY ME!](https://arcane-sea-60625.herokuapp.com/)
 
 Taylor Yip – [GitHub](https://github.com/yippptay)
 
+## Task-list
+- [x] First commit
+- [x] Research Socket.io
+- [x] WebSockets "server connections" implemented
+- [x] Player inputs
+- [x] Weapon input
+- [x] Chatroom
+- [x] Player interactivity
+- [x] Login system, MongoDB, and you
+- [x] Player combat
+- [x] Map, player, and weapon graphics
+- [x] Map rotation and seperation
+- [ ] More functionalities
+
 ## Contributing
 
 1. Fork it (<https://github.com/yourname/yourproject/fork>)
@@ -26,10 +36,10 @@ Taylor Yip – [GitHub](https://github.com/yippptay)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
 
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+## Resources
+Asset | Origin
+------------ | -------------
+Player Model | Bulbasaur from Pokemon
+Bullet Model | Leaf from Animal Crossing
+Music | Persona 5 - "Life Will Change" instrumental
+Chat Room | Original RuneScape
