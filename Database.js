@@ -1,7 +1,10 @@
 var USE_DB = true;
-var MONGODB_URI = "mongodb://localhost:27017/myGame";
+const MONGO_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/myGame";
 var mongojs = USE_DB ? require("mongojs") : null;
-var db = USE_DB ? mongojs(process.env.PORT || MONGODB_URI, ["account", "progress"]) : null;
+var db = USE_DB
+  ? mongojs(MONGO_URI, ["account", "progress"])
+  : null;
 
 //account:  {username:string, password:string}
 //progress:  {username:string, items:[{id:string,amount:number}]}
